@@ -18,7 +18,7 @@ import org.junit.Test
 
 class MakeComplement {
 
-    fun makeComplement(dna : String) : String {
+    fun firstMakeComplement(dna : String) : String {
 
         return dna
             .replace("T","X")
@@ -29,6 +29,14 @@ class MakeComplement {
             .replace("X","G")
 
     }
+
+    fun makeComplement(dna: String) = dna.map { when(it) {
+        'A' -> 'T'
+        'T' -> 'A'
+        'C' -> 'G'
+        'G' -> 'C'
+        else -> it
+    } }.joinToString("")
 
     @Test
     fun test01() {
