@@ -1,4 +1,7 @@
 
-kotlinKatas/.idea/
+.idea/
 
 *.iml
+
+
+target/
