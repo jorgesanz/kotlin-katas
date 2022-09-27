@@ -15,10 +15,27 @@ Should return: 11 (the only odd number)
 [160, 3, 1719, 19, 11, 13, -21]
 Should return: 160 (the only even number)
 
+Solutions:
+https://www.codewars.com/kata/5526fc09a1bbd946250002dc/solutions/kotlin
+
 
  */
 class FindTheParityOurlier {
 
+
+    fun find(integers: Array<Int>): Int {
+        val (even, odd) = integers.partition { it % 2 == 0 }
+        return if (even.size == 1) even[0] else odd[0]
+    }
+
+    fun oldFind(integers: Array<Int>): Int {
+        if (areEvens(integers)) {
+            return findNotEven(integers)
+        } else {
+            return findNotOdd(integers)
+        }
+        return 0
+    }
 
     private fun areEvens(integers: Array<Int>): Boolean {
 
@@ -34,15 +51,6 @@ class FindTheParityOurlier {
             }
         }
         return false
-    }
-
-    fun find(integers: Array<Int>): Int {
-        if (areEvens(integers)) {
-            return findNotEven(integers)
-        } else {
-            return findNotOdd(integers)
-        }
-        return 0
     }
 
     private fun findNotOdd(integers: Array<Int>): Int {
